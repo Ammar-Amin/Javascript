@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting js</title>
+    <style>
+        #name{
+            margin: 20px;
+            padding: 10px;
+            font-size: 1.3rem;
+
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        #submit{
+            margin: 20px;
+            padding: 7px;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <input autocomplete="off" autofocus id="name" placeholder="Enter your Name" type="text">
+        <input type="submit" id="submit">
+    </form>
+    <script>    
+    function greet(){
+        let name = document.querySelector('#name').value;
+        alert('Hello ' + name );
+        let a = prompt('What are you doing today!');
+        alert('Good luck with your, ' + a + ' 😁');
+    }
+    document.querySelector('form').addEventListener('submit', greet);
+
+    </script>
+</body>
+</html>
