@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Events</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            background-color: rgb(248, 202, 145);
+        }
+
+        .hideImg {
+            display: none
+        }
+
+        .red {
+            font-size: 1.3em;
+            color: yellow;
+            background-color: red;
+
+            padding: 10px;
+            border: 4px solid blue;
+            border-radius: 5px;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ch 52 -  54-->
+
+    if you click the image it will disappear <br><br>
+    <img id="img" src="images/ninja.jpg" width="300px" onclick="disappear();">
+    <br><br><br>
+
+    <bold> Click below to change it class without changing its existing one</bold>
+    <p class="red" onclick="bgGreen();">If you want to add a class to an element, preserving its existing classes</p>
+    <br> <br>
+
+    <bold>We are changing this image via calling asingle function with different arugments</bold>
+    <img id="beforeImg" width="300px" src="images/before.jpg" onMouseover="swapPic('beforeImg', 'images/after.jpg');" onmouseout="swapPic('beforeImg', 'images/before.jpg');">
+
+
+    <script>
+
+        function disappear() {
+            // document.getElementById('img').className = "hideImg";
+
+            // or 
+            var image = document.getElementById("img");
+            image.className = "hideImg";
+
+            // or
+            // image.classList.add("hideImg");            
+        }
+
+
+
+        function bgGreen() {
+            // It's += instead of just =.
+            // A space before the class name is required.  
+            document.querySelector("p").className += " green";
+        }
+
+
+        // mouseover event - changing image 
+        function swapPic(eId, newpic) {
+            document.getElementById(eId).src = newpic;
+        }
+
+    </script>
+
+</body>
+
+</html>

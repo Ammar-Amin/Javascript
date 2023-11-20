@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(209, 247, 213);
+        }
+
+        a {
+            font-size: 1.6rem;
+        }
+
+        input,
+        button {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Not having a good Day? </h1>
+
+
+    <!-- 45. inline event handling with Javascript  -->
+
+    <a href="#" onclick="alert('Have faith my Friend, This too shall Pass... ')">click here</a>
+
+
+
+    <!-- 46. event btn  -->
+
+    <h3>Click Event - Button below will give you a Quote</h3>
+
+    <input type="button" value="Quote 1" onclick="quote1()">
+    <button onclick="quote2()"> Quote 2 </button>
+    <img src="C:\Users\cws\Pictures\Wallpapers\COC\oldbarrel.jpg" alt="An image" onclick="alert('Hello World')">
+
+
+
+    <!-- 47. event mouse -->
+
+    <h3 onMouseover="alert('Your Mouse Pass Through the text (Mouseover Event - World Ends Tomorrow)');">Mouseover Event - World Ends Tomorrow</h3>
+
+    <!-- not working -->
+    <!-- <img src="images/before.jpg" alt="Before Img" width="200px" onmouseover="scr='images/after.jpg'" onmouseout="scr='images/before.jpg'"> -->
+
+    <img id="img" src="images/before.jpg" alt="Before Img" width="200px" 
+    onmouseover="swapImg();" onmouseout="defaultImg();">
+
+    <p id="loris" onMouseover="expand();">Slow Loris: Mouse over for more info</p>
+
+    <a href="#" onmouseover="body.style.backgroundColor='lightblue'"
+        onmouseout="body.style.backgroundColor='rgb(209, 247, 213)'">Home Page</a>
+
+
+    <script>
+
+        function quote1() {
+            alert('Nothing Fucks Harder Than Time')
+        }
+
+        function quote2() {
+            alert('Hard Time Creates Strong Man ');
+        }
+
+
+        // 47
+        function swapImg() {
+            document.querySelector('#img').src = "images/after.jpg";
+        }
+
+        function defaultImg() {
+            document.querySelector('#img').src = "images/before.jpg";
+        }
+
+
+        function expand() {
+            var newPara = "Slow Loris: Mouse over for more info Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam ea ut assumenda consequuntur laboriosam harum recusandae nulla tempora. Unde aperiam corrupti rerum nostrum blanditiis voluptatum dignissimos, tempore vero nobis illum minus sed saepe iste ipsam ut ipsum eos autem consequatur voluptatibus modi expedita non culpa dolor. Corporis voluptates voluptatem ratione!";
+            document.getElementById("loris").innerHTML = newPara;
+        }
+    </script>
+</body>
+
+</html>
