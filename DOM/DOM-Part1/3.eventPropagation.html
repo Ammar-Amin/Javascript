@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+    <style>
+        body {
+            color: rgb(142, 236, 142);
+            background-color: rgb(61, 20, 156);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h3 {
+            margin-top: 50px;
+            font-size: 26px;
+        }
+
+        li {
+            font-size: 20px;
+        }
+
+        .div2,
+        .div1 {
+            text-align: center;
+            font-size: 20px;
+            border: 2px solid white;
+            display: grid;
+            margin: 10px;
+            padding: 30px 50px;
+        }
+
+        .links {
+            margin-top: 20px;
+            display: flex;
+        }
+
+        button,
+        a {
+            width: 50%;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        a {
+            margin-left: 40px;
+            background-color: rgb(244, 181, 22);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Propagation - </h1>
+    <h2>refers to how an event travels through the document object model or the DOM tree, You can think of event
+        propagation as electricity running through a wire until it reaches its destination.</h2>
+
+    <h3> 3 Phases of Event Propagation </h3>
+    <ol>
+        <li>Event Capturing - window se button tak</li>
+        <li>Target</li>
+        <li>Event Bubbling - button se window tak</li>
+    </ol>
+
+    <div class="div2">
+        2nd div
+        <div class="div1">
+            1st div
+            <div class="links">
+                <button>Click</button>
+                <a href="" class="btn">aClick</a>
+            </div>
+        </div>
+    </div>
+
+    <h2>A button and an anchor tag with names 'Click' and 'aClick'.</h2>
+
+    <script>
+        // DOM Manipulation - Event Propogation
+
+        // addEventListener method has a 3rd optional parameter,
+        // this parameter dictates wheather to use event capture or event bubbling.
+
+        // default value of this parameter is false i.e. event bubbling - click to window
+        // but we can set it to true for event capturing - window to click
+
+        window.addEventListener('click', function () {
+            console.log('window');
+        }, true);
+
+        document.addEventListener('click', function () {
+            console.log('document');
+        }, true);
+
+        document.querySelector('.div2').addEventListener('click', function (e) {
+            // this will stop the propagation here 
+            // e.stopPropagation();
+            console.log('div 2');
+        }, true);
+
+        document.querySelector('.div1').addEventListener('click', function () {
+            console.log('div 1');
+        }, true
+            // {once: true}  // this will only be log once when the btn will be clicked.
+        );
+
+        document.querySelector('button').addEventListener('click', function (e) {
+            // e. target will get the whole html element 
+            console.log(e.target);
+            // text will be change to clicked 
+            console.log(e.target.innerText = 'clicked');
+        }, true);
+
+
+        // anchor tag (aClick)
+        // In anchor tag, it fire's off all the events but 
+        // they quickly disappear and the reason it's doing this 
+        // is because the default behavior.
+        // we can stop this from happening with the prevent default method
+        document.querySelector('.btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log(e.target)
+            console.log(e.target.innerText = 'aClicked');
+        }, true);
+
+    </script>
+</body>
+
+</html>

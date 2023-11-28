@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event listeners</title>
+    <style>
+        body {
+            background-color: #77f68a;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 50px;
+        }
+
+        h2 {
+            margin: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .boxes {
+            display: grid;
+            padding: 30px 15px;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin-bottom: 70px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading1">Event Listeners</h1>
+
+    <div class="container">
+        <div class="boxes box1">
+            <h2 id="heading2">Example 1</h2>
+            <!-- first way to include an event i.e. directly into the html element -->
+            <button onclick="alert('I love javascript')">Enter</button>
+        </div>
+        <div class="boxes box2">
+            <h2 id="heading2">Example 2</h2>
+            <button class="btn2">Enter</button>
+        </div>
+        <div class="boxes box3">
+            <h2 id="heading2">Example 3</h2>
+            <button class="btn3"> Enter </button>
+        </div>
+    </div>
+    <span>
+        <h2>1st Enter button has an onlick event, which will alert some text.</h2>
+        <h2>2nd Enter button has an addEventListener for click event, which will alert some text. </h2>
+        <h2>3rd Enter button has an addEventListener for mouseover event, which will change its bgcolor.</h2>
+    </span>
+    <script>
+        // DOM manipulation
+        // EventListeners
+
+
+        // syntax - element.addEventListener('click', function);
+
+        const btn2 = document.querySelector('.btn2');
+        // function aalert(){
+        //     alert('I also love Javascript');
+        // }
+        // btn2.addEventListener('click', aalert);
+
+        // or we combine the to like follows 
+        // here we have added the event using addEventListener method in js 
+        btn2.addEventListener('click', function () {
+            alert('I also love Javascript');
+        });
+
+
+        // use of mousehover event 
+        const btn = document.querySelector('.btn3');
+        function changebg() {
+            btn.style.backgroundColor = 'aqua';
+        };
+        btn.addEventListener('mouseover', changebg);
+
+        // or 
+        // btn.addEventListener('mouseover', function () {
+        //     btn.style.backgroundColor = 'red';
+        // });
+
+    </script>
+
+</body>
+
+</html>

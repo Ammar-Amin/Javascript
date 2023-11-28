@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master DOM m. Part 1</title>
+    <style>
+        body {
+            font-size: 20px;
+            color: white;
+            background-color: rgb(53, 31, 31);
+        }
+
+        ul {
+            margin: 10px 60px;
+            padding: 20px;
+            border: 5px solid white;
+            border-radius: 6px;
+        }
+
+        li {
+            text-align: center;
+            margin: 15px;
+            padding: 15px;
+            border: 2px solid white;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Event Delegation - </h1>
+
+    <h3>
+        It allows users to append a SINGLE event listerner to a parent element that adds
+        it to all of its present AND future desscendants that match a selector.
+    </h3>
+
+    <h3>If you click following list items their styling will change</h3>
+    <ul id="sports">
+        <li class="football">Football</li>
+        <li class="basketball">Basketball</li>
+        <li class="cricket">Cricket</li>
+        <li class="volleyball">Volleyball</li>
+        <li class="golf">Golf</li>
+    </ul>
+
+    <script>
+        // DOM Manipulation
+
+        // we'r selecting each li here, 
+        // instead we can use Event Delegation (end me h)
+
+        /*
+        document.querySelector('.football').addEventListener('click', function (e) {
+            console.log('football is clicked');
+
+            const target = e.target;
+            if (target.matches('.football')) {
+                target.style.backgroundColor = 'red';
+            }
+        });
+
+
+        document.querySelector('.basketball').addEventListener('click', function (e) {
+            console.log('basketball is clicked');
+
+            const target = e.target;
+            if (target.matches('li')) {
+                target.style.backgroundColor = 'red';
+            }
+        });
+
+        document.querySelector('.cricket').addEventListener('click', function (e) {
+            console.log('cricket is clicked');
+
+            const target = e.target;
+            if (target.matches('li')) {
+                target.style.backgroundColor = 'red';
+            }
+        });
+
+        document.querySelector('.volleyball').addEventListener('click', function (e) {
+            console.log('volleyball is clicked');
+
+            const target = e.target;
+            if (target.matches('li')) {
+                target.style.backgroundColor = 'red';
+            }
+        });
+
+        document.querySelector('.golf').addEventListener('click', function (e) {
+            console.log('golf is clicked');
+
+            const target = e.target;
+            if (target.matches('li')) {
+                target.style.backgroundColor = 'red';
+            }
+        });
+        */
+
+        // optimized code 
+        // Event Delegation
+
+        // first part of our defination
+        // instead of childs we are adding EventListener to the parent.
+
+        document.querySelector('#sports').addEventListener('click', function (e) {
+            // will get the element with its class name and is clicked 
+            console.log(e.target.getAttribute('class') + ' is clicked');
+
+            const target = e.target;
+            if (target.matches('li')) {
+                target.style.backgroundColor = 'blue';
+                target.style.fontWeight = 'bold';
+                target.style.fontSize = '21px';
+                target.style.letterSpacing = '2px';
+                target.style.color = 'yellow';
+            }
+        });
+
+        // now the second part of this definition
+        // it also adds it to future descendants that match that selector
+
+        const sports = document.querySelector('#sports');
+        // creating new li 
+        const newChild = document.createElement('li');
+        // adding text to li 
+        newChild.innerText = 'Judo';
+        // seting (class = 'judo')
+        newChild.setAttribute('class', 'judo');
+
+        // adding newLi to the parent ul i.e. sports 
+        sports.append(newChild);
+    </script>
+</body>
+
+</html>

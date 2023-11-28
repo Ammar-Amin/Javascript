@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering DOM manipulation</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            text-align: center;
+        }
+
+        .container {
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .revealMore {
+            padding: 20px 100px;
+        }
+
+        /* js likhne k baad hi styling */
+        .hidden {
+            display: none;
+        }
+
+        .hidden.revealMore {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Event Listeners</h1>
+
+    <div class="container">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, minus Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Laborum, aperiam? Libero neque vel in minima dolorem perspiciatis fugit
+            explicabo.</p>
+
+        <button class="revealMore">Reveal More</button>
+
+        <p class="hidden">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi asperiores, perferendis ipsa quis ratione
+            debitis veniam repellat dolorum excepturi sequi ullam hic, vero maxime voluptate, laboriosam voluptates at
+            amet natus!Lorem3fa-stack-2x Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque recusandae
+            animi, sint laboriosam nemo fugit accusantium dolorem cum hic maxime? Sint, sed illo. Facilis sint dolores
+            nobis. Porro, ut accusantium? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, nemo repellat
+            quaerat autem excepturi recusandae earum exercitationem deserunt dolores fugit esse ad, nihil officia ullam
+            perspiciatis nisi itaque qui. Inventore?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, natus ipsum pariatur illum mollitia
+            laborum id commodi labore quae tenetur voluptas et dolorum. Perspiciatis ducimus, est quis omnis cum itaque
+            doloremque explicabo, veniam sit laboriosam esse iusto consequatur, similique nostrum ad. Nisi qui quos
+            nesciunt modi doloribus beatae, accusantium excepturi.
+        </p>
+    </div>
+
+    <script>
+        // DOM 
+        // Reveal Event 
+
+        const btn = document.querySelector('.revealMore');
+        const hidden = document.querySelector('.hidden');
+
+        // function revealContent(){
+        //     if (hidden.classList.contains('revealMore')) 
+        //     {
+        //         hidden.classList.remove('hidden');
+        //     } else {
+        //         hidden.classList.add('hidden');
+        //     }
+        // }
+        // btn.addEventListener('click', revealContent);
+
+
+        btn.addEventListener('click', function () {
+            // agr revealMore ki class hidden ki class me hai 
+            // to class remove kr do else class add kr do 
+            if (hidden.classList.contains('revealMore')) {
+                hidden.classList.remove('revealMore');
+            } else {
+                hidden.classList.add('revealMore');
+            }
+        });
+        // ye code hidden class me reveal more ki class add/remove krra h.
+        // and upar styling k code me - hidden ki styling h (display: none;)
+        // but class add hone k baad ki styling h (display: block;)
+
+    </script>
+
+</body>
+
+</html>
