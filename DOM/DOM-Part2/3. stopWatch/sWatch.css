@@ -1,0 +1,39 @@
+body{
+    background: url(1940049.jpg) no-repeat center center/ cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: transparent;
+    padding: 30px;
+    
+}
+
+h2{
+    font-size: 3rem;
+    color: white;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.start, .stop, .reset{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+.start:hover, .stop:hover, .reset:hover{
+    background-color: black;
+    color: white;
+}
+
